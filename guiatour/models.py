@@ -13,6 +13,9 @@ class Actividad(models.Model):
     tipo = models.CharField(max_length=100, choices= TIPO_ACTIVIDAD) 
     descripcion = models.TextField(null= False, blank= False)
   
+    def __str__(self):
+        return self.nombre
+
 class Ciudad(models.Model):
     titulo = models.CharField(max_length=100) #Campo/columna titulo de tipo "campo de caracteres" de longitud maxima de 100
     descripcion = models.TextField(null=True, blank=True) #Campo/columna titulo de tipo Texto, los argumentos blank y null son para que el campo sea opcional
