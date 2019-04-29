@@ -8,6 +8,20 @@ TIPO_ACTIVIDAD= (
     ("Compras", "Compras")
 )
 
+TIPO_SEXO= (
+    ("Mas", "Masculino"),
+    ("Fem", "Fenenino"),
+)
+
+TIPO_IDIOMAS= (
+    ("Esp", "Español"),
+    ("Ing", "Ingles"),
+    ("Gua", "Guarani"),
+    ("Esp_Ing", "Español e ingles"),
+    ("Esp_Ing_Gua", "Español, ingles y guarani"),
+    ("Esp_Ing", "Español y Guarani"),
+)
+
 class Actividad(models.Model):
     nombre = models.CharField(null= False, blank= False, max_length=100) 
     tipo = models.CharField(max_length=100, choices= TIPO_ACTIVIDAD) 
@@ -27,9 +41,9 @@ class Ciudad(models.Model):
 
 class Guia(models.Model):
     nombre = models.CharField(max_length=100) #Campo/columna titulo de tipo "campo de caracteres" de longitud maxima de 100
-    sexo = models.CharField(max_length=100)
+    sexo = models.CharField(max_length=100, choices= TIPO_SEXO)
     foto = models.ImageField(max_length=100)
-    idioma = models.CharField(max_length=100)
+    idioma = models.CharField(max_length=100, choices= TIPO_IDIOMAS)
     biografia = models.TextField(null=True, blank=True) #Campo/columna titulo de tipo Texto, los argumentos blank y null son para que el campo sea opcional
     contacto = models.CharField(max_length=100)
 
