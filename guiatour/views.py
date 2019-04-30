@@ -32,5 +32,13 @@ def perfil_guia (request,id):
 
     return render(request, 'perfilguia.html', {"guia":guia})
 
+
+def detalle_actividad(request,id):
+    print(id)
+    actividad=Actividad.objects.all(id=id)
+    print(actividad)
+
+    return render(request, actividad)
+
     
     
