@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.index),
     path('ciudad/<int:id>/', views.detalle_ciudad),
     path('guia/<int:id>/', views.perfil_guia),
+    path('actividad/<int:id>/', views.detalle_actividad),
 ]
