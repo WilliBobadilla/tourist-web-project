@@ -27,10 +27,11 @@ def detalle_ciudad(request,id):
 def perfil_guia (request,id):
     print(id)
     guia = Guia.objects.get(id=id)
+    actividades = Actividad.objects.filter(guia=guia)
     print(guia)
     #return HttpResponse(guia)
-
-    return render(request, 'perfilguia.html', {"guia":guia})
+    contexto = {"guia":guia,"actividades":actividades}
+    return render(request, 'perfilguia.html', contexto)
 
 
 def detalle_actividad(request,id):
