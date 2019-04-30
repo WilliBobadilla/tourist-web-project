@@ -36,10 +36,13 @@ def perfil_guia (request,id):
 
 def detalle_actividad(request,id):
     print(id)
-    actividad=Actividad.objects.all(id=id)
+    #Obtener actividad solicitada
+    actividad = Actividad.objects.get(id=id)
+    guia = actividad.guia
+    contexto = {"actividad":actividad,"guia":guia}
     print(actividad)
 
-    return render(request, actividad)
+    return render(request,'detalle_actividad.html', contexto)
 
     
     
