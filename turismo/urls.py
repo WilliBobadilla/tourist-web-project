@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from guiatour import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('ciudad/<int:id>/', views.detalle_ciudad),
     path('guia/<int:id>/', views.perfil_guia),
     path('actividad/<int:id>/', views.detalle_actividad),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

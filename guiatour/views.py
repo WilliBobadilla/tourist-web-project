@@ -8,13 +8,14 @@ def index(request):
     id_asuncion = Ciudad.objects.all()[0].id
     id_encarnacion = Ciudad.objects.all()[1].id
     id_cde = Ciudad.objects.all()[2].id
-    contexto = {
+    contenido = {
         "id_asuncion" : id_asuncion,
         "id_encarnacion" : id_encarnacion, 
         "id_cde" : id_cde,
+        "ciudades":Ciudad.objects.all(),
     }
 
-    return HttpResponse(id_encarnacion)
+    return render(request, 'index.html', contenido)
 
 
 def detalle_ciudad(request,id):
