@@ -19,5 +19,11 @@ from guiatour import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('ciudad/', views.salida),
+=======
+    path('', views.index),
+    path('ciudad/<int:id>/', views.detalle_ciudad),
+    path('guia/<int:id>/', views.perfil_guia),
+>>>>>>> cfdb2c8e7600039f80a91720ef90e7e707b4987f
 ]
