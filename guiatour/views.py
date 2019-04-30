@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from guiatour.models import Ciudad
+from guiatour.models import Ciudad, TipoActividad, Actividad
 from django.http import HttpResponse
 
 # Create your views here.
@@ -15,3 +15,13 @@ def index(request):
     }
 
     return HttpResponse(id_encarnacion)
+
+
+def detalle_ciudad(request,id):
+    ciudad = Ciudad.objects.get(id=id)
+    tipo_actividades = TipoActividad.objects.all()
+    lista_actividades = Actividad.objects.filter(guia__ciudad__id=id)
+
+    return HttpResponse(lista_actividades)
+
+
