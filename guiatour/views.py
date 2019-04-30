@@ -20,8 +20,8 @@ def index(request):
 def detalle_ciudad(request,id):
     ciudad = Ciudad.objects.get(id=id)
     tipo_actividades = TipoActividad.objects.all()
-    lista_actividades = Actividad.objects.all()
-
+    lista_actividades = Actividad.objects.filter(guia__ciudad__id=id)
+    
     return HttpResponse(lista_actividades)
 
 def perfil_guia (request,id):
