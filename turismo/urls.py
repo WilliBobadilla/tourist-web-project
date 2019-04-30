@@ -22,5 +22,4 @@ urlpatterns = [
     path('', views.index),
     path('ciudad/<int:id>/', views.detalle_ciudad),
 
-
 ]
