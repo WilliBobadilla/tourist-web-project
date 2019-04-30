@@ -1,17 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
-from django.http import HttpResponse
-from .models import Ciudad
-from .models import Guia
-# Create your views here.
-
-
-def salida(request):
-    despedida = Ciudad.objects.all()
-    despe = Guia.objects.all()
-    #return HttpResponse(despedida)
-    return render(request,"index.html",{"ciudades":despedida, "guias":despe })
-=======
 from guiatour.models import Ciudad, TipoActividad, Actividad, Guia
 from django.http import HttpResponse
 
@@ -45,6 +32,13 @@ def perfil_guia (request,id):
 
     return render(request, 'perfilguia.html', {"guia":guia})
 
+
+def detalle_actividad(request,id):
+    print(id)
+    actividad=Actividad.objects.all(id=id)
+    print(actividad)
+
+    return render(request, actividad)
+
     
     
->>>>>>> cfdb2c8e7600039f80a91720ef90e7e707b4987f
