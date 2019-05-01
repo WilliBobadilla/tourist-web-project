@@ -22,8 +22,8 @@ def detalle_ciudad(request,id):
     ciudad = Ciudad.objects.get(id=id)
     tipo_actividades = TipoActividad.objects.all()
     lista_actividades = Actividad.objects.filter(guia__ciudad__id=id)
-    
-    return HttpResponse(lista_actividades)
+    contexto = {"ciudad":ciudad}
+    return render(request, 'guiafinal.html', contexto)
 
 def perfil_guia (request,id):
     print(id)
@@ -35,15 +35,19 @@ def perfil_guia (request,id):
     return render(request, 'guiafinal.html', contexto)
 
 
-def detalle_actividad(request,id):
+def detalle_actividad(request,id_tipo,id_ciudad):
     print(id)
     #Obtener actividad solicitada
-    actividad = Actividad.objects.get(id=id)
-    guia = actividad.guia
-    contexto = {"actividad":actividad,"guia":guia}
-    print(actividad)
+    guia=Guia.objects.filter(ciudad=id_ciudad)
+    lista_actividades = Actividad.objects.filter(tipo=id_tipo)
+    lista_final=[]
+    for acti in lista_actividades:
+        if acti.guia in guia:
+            lista_final.append(acti.guia)
+    contexto = {"guias":lista_final}
+    print(lista_final)
 
-    return render(request,'detalle_actividad.html', contexto)
+    return render(request,'actividadfinal.html', contexto)
 
 # funcion para que aparezca plantilla actividad final
 def acti_final(request,id):

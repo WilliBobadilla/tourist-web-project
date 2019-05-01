@@ -22,11 +22,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
-    path('ciudad/<int:id>/', views.detalle_ciudad),
-    path('guia/<int:id>/', views.perfil_guia),
-    path('actividad/<int:id>/', views.detalle_actividad),
-    path('acti/<int:id>/', views.acti_final),
-    path('City/<int:id>/', views.localidad)
+    path('', views.index), #Index de la pagina, mostrar 3 ciudades
+    path('ciudad/<int:id>/', views.localidad),#Ciudad , se debe ver las categorias de actividades
+    path('actividad/<int:id>/', views.acti_final),#ListaGuias, me muestra los guias de un ciudad elegida
+    path('guia/<int:id>/', views.perfil_guia),#Perfil Guia muestra, el perfil del guia
+    path('activida/<int:id_tipo>/<int:id_ciudad>/', views.detalle_actividad),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
