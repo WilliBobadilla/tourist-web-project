@@ -10,7 +10,7 @@ TIPO_ACTIVIDAD= (
 
 TIPO_SEXO= (
     ("Mas", "Masculino"),
-    ("Fem", "Fenenino"),
+    ("Fem", "Femenino"),
 )
 
 TIPO_IDIOMAS= (
