@@ -37,15 +37,25 @@ def perfil_guia (request,id):
 
 def detalle_actividad(request,id_tipo,id_ciudad):
     print(id)
-    #Obtener actividad solicitada
-    guia=Guia.objects.filter(ciudad=id_ciudad)
-    lista_actividades = Actividad.objects.filter(tipo=id_tipo)
-    lista_final=[]
-    for acti in lista_actividades:
-        if acti.guia in guia:
-            lista_final.append(acti.guia)
-    contexto = {"guias":lista_final}
-    print(lista_final)
+    #Obtener guias de la ciudad solicitada
+    ciudad = Ciudad.objects.get(id=id_ciudad)
+    print("me pediste ciudad  "+ciudad.titulo)
+    tipo = TipoActividad.objects.get(id=id_tipo)
+    print("me pediste tipo  "+tipo.nombre)
+
+    guias_ciudad = Guia.objects.filter(ciudad__id=id_ciudad)
+    
+    guias_tipo_ciudad = []
+    # Por cada actividad del tipo
+    for guia in guias_ciudad:
+        # Existe una actividad de este tipo y de este guia?
+        tiene_actis_tipo = Actividad.objects.filter(tipo__id=id_tipo).filter(guia=guia).exists()
+        # Si existe, le agrego a la lista de guias del tipo y ciudad pedidos
+        if tiene_actis_tipo:
+            guias_tipo_ciudad.append(guia)
+
+    contexto = {"guias":guias_tipo_ciudad}
+    print(guias_tipo_ciudad)
 
     return render(request,'actividadfinal.html', contexto)
 

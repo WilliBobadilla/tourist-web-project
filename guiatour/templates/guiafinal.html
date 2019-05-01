@@ -39,20 +39,20 @@
    <!-- Navigation -->
    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Guide me!</a>
+        <a class="navbar-brand js-scroll-trigger" href="/#page-top">Guide me!</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto my-2 my-lg-0">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Localidades</a>
+              <a class="nav-link js-scroll-trigger" href="/#portfolio">Localidades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Más info</a>
+              <a class="nav-link js-scroll-trigger" href="/#services">Más info</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+              <a class="nav-link js-scroll-trigger" href="/#contact">Contacto</a>
             </li>
           </ul>
         </div>
@@ -80,53 +80,48 @@
 	<div class="row">
 		<div class="col-md-5">
 			<div class="heading">				
-				<img/>
 			</div>
 		</div>	
 	</div>
-	<div class="bio-info">
+	<div class="text-center mt-0">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="bio-image">
                 <div class="w-80">
-							<img src="img/profile.png" alt="image" width="300" height="300" />
                 </div class="w-80">
             </div>			
 					</div>
 				</div>	
 			</div>
-			<div class="col-md-6">
-				<div class="bio-content">
-          <h1>Marcos Sosa</h1>
-          {{ pepito }}
-					<h6>Te muestro los mejores lugares de la ciudad.</h6>
-          <p>· (317) 585-8468 ·</p>
-          <a href="mailto:name@email.com">nombre@mail.com</a> 
-				</div>
-			</div>
-		</div>	
-	</div>
+			<div class="text-center mt-0">
+        <div class="bio-info">
+          <a href="/guia/{{guia.id}}/">
+          <h1>{{guia.nombre}}</h1>
+          </a>
+          <h6>{{guia.biografia}}</h6>
+          <p>{{guia.contacto}}</p>
+        </div>
+      </div>
 </div>
     </section>
 
     <hr class="m-0">
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+    <section class="page-section" id="services">
       <div class="w-80">
-        <h2 class="mb-5">ACTIVIDADES</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <h2 class="text-center mt-0">Actividades</h2>
+        {% for actividad in actividades %}
+        <div class="text-center mb-5">
           <div class="resume-content">
-              <img src="img/Arte_y_cultura.png" width="50" height="50" /> 
-            <h3 class="mb-0">Arte y Cultura</h3>
-            <div class="subheading mb-3">Paseo por el Centro Histórico de la Ciudad!</div>
-            <p>Clima agradable y tarde propicia para un recorrido por el centro histórico, recordar sus representaciones y antecedentes, y festejar la víspera del Día de la Patria.</p>
+              <i class="fas fa-4x fa-book-open text-primary mb-4"></i> 
+            <h3 class="mb-0">{{actividad.nombre}}</h3>
+            <div class="text-muted mb-0">{{actividad.descripcion}}</div>
           </div>
-          <div class="resume-date text-md-right">
+          <div class="resume-date text-center">
           </div>
         </div>
-
+        {% endfor %}
     </section>
 
   </div>
