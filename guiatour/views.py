@@ -46,12 +46,10 @@ def detalle_actividad(request,id):
     return render(request,'detalle_actividad.html', contexto)
 
 # funcion para que aparezca plantilla actividad final
-def acti_final (request):
+def acti_final(request,id):
 
     contenido = {
-        "ciudades":Ciudad.objects.all(),
-        "actividades":Actividad.objects.all(),
-        "pepito": "HOOOOOOOOOOOOOOLLLLLLAAAAAAAAAAAAAA!!!!"
+        "guias":Guia.objects.filter(ciudad=id),
     }
 
     return render(request, 'actividadfinal.html', contenido)
