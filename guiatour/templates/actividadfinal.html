@@ -60,6 +60,21 @@
   </nav>
 <!------------>
 <!------------>
+  <!-- Masthead -->
+  <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+          <div class="col-lg-10 align-self-end">
+            <h1 class="text-uppercase text-white font-weight-bold">¡Conocé a los guías! </h1>
+            <hr class="divider my-4">
+          </div>
+          <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 font-weight-light mb-5"> </p>
+          </div>
+        </div>
+      </div>
+    </header>
+  
   <div class="container-fluid p-0">
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
@@ -73,27 +88,15 @@
 	</div>
 	<div class="bio-info">
 		<div class="row">
-			<div class="col-md-6">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="bio-image">
-                <div class="w-80">
-							<img src="/static/img/profile.png" alt="image" width="300" height="300" />
-                </div class="w-80">
-            </div>			
-					</div>
-				</div>	
-			</div>
+      {% for guia in guias %}
 			<div class="col-md-6">
 				<div class="bio-content">
-          <h1>Marcos Sosa</h1>
-          {{ pepito }}
-					<h6>Te muestro los mejores lugares de la ciudad.</h6>
-          <p>· (317) 585-8468 ·</p>
-          <a href="mailto:name@email.com">nombre@mail.com</a> 
-          {{ ciudades }}
+          <h1>{{guia.nombre}}</h1>
+					<h6>{{guia.biografia}}</h6>
+          <p>{{guia.contacto}}</p>
 				</div>
-			</div>
+      </div>
+      {% endfor %}
 		</div>	
 	</div>
 </div>
@@ -103,66 +106,7 @@
          <p> {{ acti.tipo }} </p>
       {% endfor %}
     <hr class="m-0">
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
-      <div class="w-80">
-        <h2 class="mb-5">ACTIVIDADES</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-              <img src="/static/img/Arte_y_cultura.png" width="50" height="50" /> 
-            <h3 class="mb-0">Arte y Cultura</h3>
-            <div class="subheading mb-3">Paseo por el Centro Histórico de la Ciudad!</div>
-            <p>Clima agradable y tarde propicia para un recorrido por el centro histórico, recordar sus representaciones y antecedentes, y festejar la víspera del Día de la Patria.</p>
-          </div>
-          <div class="resume-date text-md-right">
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-              <img src="/static/img/Bares_y_vida_nocturna.png" width="50" height="50" /> 
-            <h3 class="mb-0">Bares y Vida Nocturna</h3>
-            <div class="subheading mb-3">Las mejores cervezas de la zona</div>
-            <p> Bares, pubs, discotecas, casinos, conciertos o música en vivo, clubes, teatros y cines alternativos o funciones de trasnoche, todo en un solo lugar.</p>
-          </div>
-          <div class="resume-date text-md-right">
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-              <img src="/static/img/naturaleza_y_deportes.png" width="50" height="50" />
-            <h3 class="mb-0">Naturaleza y Deportes</h3>
-            <div class="subheading mb-3">Vida pura al aire libre</div>
-            <p> Las actividades disponibles son excursiones de senderismo, descenso de barrancos, trekking, formación al montañismo, alquiler de bicis, raquetas de nieve y demás..</p>
-          </div>
-          <div class="resume-date text-md-right">
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-              <img src="/static/img/comida_y_restaurantes.png" width="50" height="50" />
-            <h3 class="mb-0">Comida y Restaurantes</h3>
-            <div class="subheading mb-3">Asado y comidas típicas</div>
-            <p>Las comidas típicas paraguayas son el resultado de la combinación de las técnicas culinarias hispanas y las técnicas precolombinas guaraníes. Utilizan productos nativos y otros introducidos y aclimatados por los españoles. El producto básico es el maíz (choclo) en cualquiera de sus formas: molido, cocido o fermentado..</p>
-          </div>
-          <div class="resume-date text-md-right">
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-              <img src="/static/img/compras.png" width="50" height="50" />
-            <h3 class="mb-0">Compras</h3>
-            <div class="subheading mb-3">Lo último en tecnlogía</div>
-            <p>Los teléfonos móviles o celulares y computadoras fueron los productos importados más dinámicos</p>
-          </div>
-          <div class="resume-date text-md-right">
-          </div>
-        </div>
-    </section>
-
+    
   </div>
   <!-- Footer -->
   <footer class="bg-light py-5">
