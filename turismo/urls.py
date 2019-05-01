@@ -26,4 +26,6 @@ urlpatterns = [
     path('ciudad/<int:id>/', views.detalle_ciudad),
     path('guia/<int:id>/', views.perfil_guia),
     path('actividad/<int:id>/', views.detalle_actividad),
+    path('acti/', views.acti_final),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
