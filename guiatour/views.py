@@ -32,7 +32,7 @@ def perfil_guia (request,id):
     print(guia)
     #return HttpResponse(guia)
     contexto = {"guia":guia,"actividades":actividades}
-    return render(request, 'perfilguia.html', contexto)
+    return render(request, 'guiafinal.html', contexto)
 
 
 def detalle_actividad(request,id):
