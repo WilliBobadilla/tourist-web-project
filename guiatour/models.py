@@ -22,21 +22,11 @@ TIPO_IDIOMAS= (
     ("Esp_Ing", "Español y Guarani"),
 )
 
-class TipoActividad(models.Model):
-    nombre = models.CharField(null= False, blank= False, max_length=100)  
-    descripcion = models.TextField(null= True, blank= True)
-    foto = models.ImageField(null= True, blank= True)
-
-    def __str__(self):
-        return self.nombre
-
 class Actividad(models.Model):
     nombre = models.CharField(null= False, blank= False, max_length=100) 
-    tipo = models.ForeignKey('TipoActividad', on_delete=models.CASCADE,null=False)
-    guia = models.ForeignKey('Guia', on_delete=models.CASCADE,null=True)
-    foto = models.ImageField(null=True, blank=True)
+    tipo = models.CharField(max_length=100, choices= TIPO_ACTIVIDAD) 
     descripcion = models.TextField(null= False, blank= False)
-  
+    
     def __str__(self):
         return self.nombre
 
@@ -52,8 +42,7 @@ class Ciudad(models.Model):
 class Guia(models.Model):
     nombre = models.CharField(max_length=100) #Campo/columna titulo de tipo "campo de caracteres" de longitud maxima de 100
     sexo = models.CharField(max_length=100, choices= TIPO_SEXO)
-    ciudad = models.ForeignKey('Ciudad', on_delete=models.SET_NULL,null=True)
-    foto = models.ImageField(null=True, blank=True)
+    foto = models.ImageField(max_length=100)
     idioma = models.CharField(max_length=100, choices= TIPO_IDIOMAS)
     biografia = models.TextField(null=True, blank=True) #Campo/columna titulo de tipo Texto, los argumentos blank y null son para que el campo sea opcional
     contacto = models.CharField(max_length=100)
