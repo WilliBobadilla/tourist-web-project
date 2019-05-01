@@ -56,4 +56,9 @@ def acti_final (request):
 
     return render(request, 'actividadfinal.html', contenido)
     
-    
+def localidad (request,id):
+    print(id)
+    ciudad = Ciudad.objects.get(id=id)
+    print(ciudad)
+    contexto = {"ciudad":ciudad}
+    return render(request, 'ciudadfinal.html', contexto)    
